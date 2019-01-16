@@ -393,5 +393,68 @@ namespace GC2Toolkit
 			else
 				File.WriteAllText(".\\PakFileAdd.txt", Output);
         }
+
+        public void GenerateDummyResponse(string FilePath){
+            string FileData = File.ReadAllText(FilePath);
+
+            if (FileData.Contains("<info>0</info>"))
+                FileData = FileData.Replace("<info>0</info>", "<info>1</info>");
+            else FileData = FileData.Insert(FileData.IndexOf("</is_tutorial>") + 14, "<info>1</info>");
+
+            string[] FileData_Contents = FileData.Split(new string[] { "my_stage" }, StringSplitOptions.None);
+            string FileData_FirstPart = FileData_Contents[0].Substring(0, FileData_Contents[0].Length - 1);
+            string FileData_LastPart = FileData_Contents[FileData_Contents.Length - 1].Substring(1);
+
+            string DataToGo = "";
+            for (int i = 1; i <= MaxStage; i++)
+                DataToGo += "<my_stage>\n<stage_id>" + i.ToString() + "</stage_id>\n<ac_mode>1</ac_mode>\n</my_stage>\n";
+
+            FileData = FileData_FirstPart + DataToGo + FileData_LastPart;
+
+            FileData_Contents = FileData.Split(new string[] { "my_avatar" }, StringSplitOptions.None);
+            FileData_FirstPart = FileData_Contents[0].Substring(0, FileData_Contents[0].Length - 1);
+            FileData_LastPart = FileData_Contents[FileData_Contents.Length - 1].Substring(1);
+
+            DataToGo = "";
+            for (int i = 1; i <= MaxAvater; i++)
+            {
+                if (i == 87 || i == 88 || i == 89) continue;
+                else DataToGo += "<my_avatar>" + i.ToString() + "</my_avatar>\n";
+            }
+
+            FileData = FileData_FirstPart + DataToGo + FileData_LastPart;
+            if (FileData.Contains("login_bonus"))
+            {
+                Console.Title = "GC2 FullUnlock Toolkit | Login Day:" + ItemGetCount.ToString();
+
+                FileData_Contents = FileData.Split(new string[] { "login_bonus" }, StringSplitOptions.None);
+                FileData_FirstPart = FileData_Contents[0].Substring(0, FileData_Contents[0].Length - 1);
+                FileData_LastPart = FileData_Contents[FileData_Contents.Length - 1].Substring(1);
+
+                DataToGo = "<login_bonus><status>1</status><last_count>0</last_count><now_count>" + ItemGetCount.ToString() + "</now_count>" +
+                    "<reward><count>1</count><cnt_type>3</cnt_type><cnt_id>1</cnt_id><num>200</num></reward>" +
+                    "<reward><count>2</count><cnt_type>3</cnt_type><cnt_id>2</cnt_id><num>200</num></reward>" +
+                    "<reward><count>3</count><cnt_type>3</cnt_type><cnt_id>3</cnt_id><num>200</num></reward>" +
+                    "<reward><count>4</count><cnt_type>3</cnt_type><cnt_id>4</cnt_id><num>200</num></reward>" +
+                    "<reward><count>5</count><cnt_type>3</cnt_type><cnt_id>5</cnt_id><num>200</num></reward>" +
+                    "<reward><count>6</count><cnt_type>3</cnt_type><cnt_id>6</cnt_id><num>200</num></reward>" +
+                    "<reward><count>7</count><cnt_type>3</cnt_type><cnt_id>7</cnt_id><num>200</num></reward>" +
+                    "<reward><count>8</count><cnt_type>3</cnt_type><cnt_id>8</cnt_id><num>200</num></reward>" +
+                    "<reward><count>9</count><cnt_type>3</cnt_type><cnt_id>9</cnt_id><num>200</num></reward>" +
+                    "<reward><count>10</count><cnt_type>3</cnt_type><cnt_id>10</cnt_id><num>200</num></reward>" +
+                    "<reward><count>26</count><cnt_type>1</cnt_type><cnt_id>277</cnt_id><num>1</num></reward>" +
+                    "<reward><count>27</count><cnt_type>1</cnt_type><cnt_id>277</cnt_id><num>1</num></reward>" +
+                    "<reward><count>28</count><cnt_type>1</cnt_type><cnt_id>277</cnt_id><num>1</num></reward>" +
+                    "<reward><count>29</count><cnt_type>1</cnt_type><cnt_id>277</cnt_id><num>1</num></reward>" +
+                    "<reward><count>30</count><cnt_type>1</cnt_type><cnt_id>277</cnt_id><num>1</num></reward>" +
+                    "<count_update>1</count_update><message>You are now connected to GC2 Unlock tool.\nCurrent Day:" + ItemGetCount.ToString() + "\nPs:Restart game to get next item.</message>" + "</login_bonus>";
+
+                ItemGetCount++;
+                FileData = FileData_FirstPart + DataToGo + FileData_LastPart;
+            }
+
+            File.WriteAllText(FilePath + ".output", FileData);
+            Console.WriteLine("Special Process to " + FilePath + " has done.");
+        }
     }
 }

@@ -8,11 +8,24 @@ namespace GC2Toolkit
 {
     class Program
     {
-        static string Version = "Build 20170501_BemaniCN_Final";
+        static string Version = "Build 20190116";
         static void Main(string[] args)
         {
             IPAddress[] addressList = Dns.GetHostAddresses(Dns.GetHostName());
             MainServer Listener;
+            if (args.Length == 2 && args[0] == "manual")
+            {
+                try
+                {
+                    Listener = new MainServer(Version);
+                    Listener.GenerateDummyResponse(args[1]);
+                    Environment.Exit(0);
+                }catch{
+                    Console.WriteLine("failed to generate dummy response.");
+                    Environment.Exit(-1);
+                }
+            }
+
             try
             {
                 Listener = new MainServer(Version);
@@ -31,6 +44,8 @@ namespace GC2Toolkit
                 Console.ReadLine();
                 return;
             }
+
+
             Console.Title = "GC2 FullUnlock Toolkit | " + Version;
             Console.WriteLine("GC2 FullUnlock Toolkit Online.");
 
