@@ -1,6 +1,7 @@
 # GC2Toolkit
 Used to be a GC2iOS Song Unlocker
-Since Taito implemented HTTPS in iOS Client, this tool becomes obsolete(but it still works, see below.)
+
+Since Taito implemented HTTPS in iOS Client, this tool becomes obsolete(but it may works, see below.)
 
 # How to use it (in 2019) ?
 You will need to do some MITM stuff(faking certs, setup own server, re-route server address by hosts, etc.)
