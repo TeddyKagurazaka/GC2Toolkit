@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GC2Toolkit", "GC2Toolkit.csproj", "{BBEF3964-ADA5-4741-96DF-F49A1C40C233}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug_ALLNetOnly|Any CPU = Debug_ALLNetOnly|Any CPU
+		Debug_NesicaOnly|Any CPU = Debug_NesicaOnly|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBEF3964-ADA5-4741-96DF-F49A1C40C233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBEF3964-ADA5-4741-96DF-F49A1C40C233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBEF3964-ADA5-4741-96DF-F49A1C40C233}.Debug_ALLNetOnly|Any CPU.ActiveCfg = Debug_ALLNetOnly|Any CPU
+		{BBEF3964-ADA5-4741-96DF-F49A1C40C233}.Debug_ALLNetOnly|Any CPU.Build.0 = Debug_ALLNetOnly|Any CPU
+		{BBEF3964-ADA5-4741-96DF-F49A1C40C233}.Debug_NesicaOnly|Any CPU.ActiveCfg = Debug_NesicaOnly|Any CPU
+		{BBEF3964-ADA5-4741-96DF-F49A1C40C233}.Debug_NesicaOnly|Any CPU.Build.0 = Debug_NesicaOnly|Any CPU
+		{BBEF3964-ADA5-4741-96DF-F49A1C40C233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBEF3964-ADA5-4741-96DF-F49A1C40C233}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
