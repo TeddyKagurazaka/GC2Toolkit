@@ -1,3 +1,10 @@
+# In memoriam of Groove Coaster 2 - Original Style - 
+*(2015.7.1 ~ 2025.3.31 14:00)*
+
+More information here: https://www.taito.co.jp/mob/topics/26692
+
+Since the official service is dead, you should find 3rd party server solutions instead.
+
 # GC2Toolkit
 Used to be a GC2iOS Song Unlocker
 
